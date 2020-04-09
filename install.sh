@@ -8,6 +8,8 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
+mkdir $HOME/.config/nvim/
+
 ln -s $PWD/.zshrc $HOME/.zshrc
 ln -s $PWD/.nvimrc $HOME/.nvimrc
 ln -s $PWD/.nvimrc $HOME/.config/nvim/init.vim
