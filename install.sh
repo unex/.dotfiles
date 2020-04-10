@@ -23,7 +23,7 @@ if [ -z "$(ls -A $ZSH_CUSTOM/themes/spaceship-prompt)" ]; then
 fi
 
 # Link each rc file
-SH_FILES=".zshrc .nvimrc"
+SH_FILES=".zshrc .nvimrc .warprc"
 
 for FILE in $SH_FILES; do
     if [[ -f "$HOME/$FILE" && ! -L "$HOME/$FILE" ]]; then
