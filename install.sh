@@ -22,10 +22,10 @@ if [ -z "$(ls -A $ZSH_CUSTOM/themes/spaceship-prompt)" ]; then
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 fi
 
-# Link each rc file
-SH_FILES=".zshrc .nvimrc .warprc"
-
-for FILE in $SH_FILES; do
+# Link files
+OIFS="$IFS"
+IFS=$'\n'
+for FILE in $(find . -type f | grep -P "^((?!(install.sh|\.git|\./oh-my-zsh/themes/spaceship-prompt)).)*$"); do
     if [[ -f "$HOME/$FILE" && ! -L "$HOME/$FILE" ]]; then
         echo "Moving regular file $FILE"
         mv "$HOME/$FILE" "$HOME/$FILE.old"
@@ -34,13 +34,8 @@ for FILE in $SH_FILES; do
         echo "$FILE is linked to $(readlink -f "$HOME/$FILE")"
     else
         echo "Linking $FILE"
+        mkdir -p "$HOME/$(dirname $FILE)"
         ln -s "$PWD/$FILE" "$HOME/$FILE"
     fi
 done
-
-# Link nvim init file
-if [ ! -e "$HOME/.config/nvim/init.vim" ]; then
-    echo "Linking $HOME/.config/nvim/init.vim"
-    mkdir -p $HOME/.config/nvim/
-    ln -s $PWD/.nvimrc $HOME/.config/nvim/init.vim
-fi
+IFS="$OIFS"
