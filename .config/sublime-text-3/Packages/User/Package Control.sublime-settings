@@ -1,0 +1,18 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Agila Theme",
+		"CSS3",
+		"nginx",
+		"Package Control",
+		"Sass",
+		"SCSS",
+		"SFTP",
+		"ShellScriptImproved"
+	]
+}
