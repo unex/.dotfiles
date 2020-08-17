@@ -1,6 +1,10 @@
 # Install script, idk if this will work
 ZSH_CUSTOM="$PWD/oh-my-zsh"
 
+PACKAGES="zsh curl neovim"
+
+sudo apt install -qq $PACKAGES
+
 # Install oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     export RUNZSH="no"
