@@ -1,3 +1,4 @@
+#!/bin/bash
 # Install script, idk if this will work
 ZSH_CUSTOM="$PWD/oh-my-zsh"
 
