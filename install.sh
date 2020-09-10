@@ -2,7 +2,10 @@
 # Install script, idk if this will work
 ZSH_CUSTOM="$PWD/oh-my-zsh"
 
-PACKAGES="zsh curl neovim"
+PACKAGES="zsh curl neovim \
+    build-essential libssl-dev zlib1g-dev libbz2-dev \
+    libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+    xz-utils tk-dev libffi-dev liblzma-dev python-openssl git"
 
 sudo apt install -qq $PACKAGES
 
