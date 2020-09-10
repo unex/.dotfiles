@@ -27,6 +27,11 @@ if [ -z "$(ls -A $ZSH_CUSTOM/themes/spaceship-prompt)" ]; then
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 fi
 
+# Install pyenv
+if [ ! -d "$HOME/.pyenv" ]; then
+    curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+fi
+
 # Link files
 OIFS="$IFS"
 IFS=$'\n'
