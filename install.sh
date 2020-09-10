@@ -38,7 +38,7 @@ fi
 # Link files
 OIFS="$IFS"
 IFS=$'\n'
-for FILE in $(find . -type f | grep -P "^((?!(install.sh|\.git|\./oh-my-zsh/themes/spaceship-prompt)).)*$"); do
+for FILE in $(find . -type f | grep -P "^((?!(install.sh|\.git\b|\./oh-my-zsh/themes/spaceship-prompt)).)*$"); do
     if [[ -f "$HOME/$FILE" && ! -L "$HOME/$FILE" ]]; then
         echo "Moving regular file $FILE"
         mv "$HOME/$FILE" "$HOME/$FILE.old"
@@ -52,3 +52,5 @@ for FILE in $(find . -type f | grep -P "^((?!(install.sh|\.git|\./oh-my-zsh/them
     fi
 done
 IFS="$OIFS"
+
+git config --global core.excludesFile "$HOME/.gitignore-global"
